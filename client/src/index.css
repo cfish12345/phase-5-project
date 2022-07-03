@@ -1,0 +1,113 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: url("https://media.socastsrm.com/wordpress/wp-content/blogs.dir/2323/files/2019/06/credit-adwo-shutterstock2.jpg") repeat scroll 50% 0%;
+  
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.nav {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  padding: 5px;
+  width:100%;
+  text-align: left;
+  background: black
+}
+
+.link {
+  font-size: 14px;
+  color: cyan;
+  text-decoration: none;
+  padding: 10px;
+}
+/* .link:hover {
+  color: red;
+  font-size: 15px;
+} */
+
+.movie-container {
+  text-align: center;
+  border: grey solid 1px;
+  padding: 1rem;
+  width: 17rem;
+  height: 35rem;
+  display: inline-grid;
+  margin: 1rem 2rem;
+  box-shadow: 3px 4px #e04b52;
+}
+.movie-img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.review-container {
+  text-align: center;
+  border: grey solid 1px;
+  padding: 1rem;
+  width: 17rem;
+  height: 35rem;
+  display: inline-grid;
+  margin: 1rem 2rem;
+  box-shadow: 3px 4px #e04b52;
+  background: rgb(190, 189, 189)
+  
+}
+
+.review-img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.profile-img {
+  height: 5%;
+  width: 5%;
+  object-fit: contain;
+}
+
+.btn1 {
+  background: black;
+  border: none;
+  color: rgb(0, 238, 255);
+  padding: 8px 22px;
+  text-align: center;
+  font-size: 13px;
+  border-radius: 2px;
+  position: absolute;
+  top: 0px;
+  right: 10px;
+}
+
+.profile-info {
+  position: relative;
+  text-align: right;
+  bottom: 120px;
+  right: 20px;
+  font-size: 15px;
+  color:rgb(0, 238, 255);
+}
+
+.title {
+  position: relative;
+  bottom: 10px;
+  text-align: center;
+  font-size: 60px;
+  color: rgb(0, 238, 255);
+  background: black;
+}
+
+.home-page {
+  text-align: center;
+}
+
