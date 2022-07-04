@@ -5,6 +5,7 @@ function ReviewCreateForm({ user, hideForm, reRender, review }) {
     const [rating, setRating] = useState('');
     const [description, setDescription] = useState('');
     const [movie, setMovie] = useState('');
+    const [errors, setErrors] = useState([]);
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -22,20 +23,26 @@ function ReviewCreateForm({ user, hideForm, reRender, review }) {
             },
             body: JSON.stringify(review),
         })
-            .then((r) => r.json())
-            .then(
-                setRating(0),
-                setDescription(''),
-            )
-            .then(hideForm)
-            .then(reRender)
+            .then(r => {
+                if(r.ok){
+                    r.json().then(
+                        setRating(0),
+                        setDescription(''),
+                    )
+                    .then(hideForm)
+                    .then(reRender)
+                } else {
+                    r.json().then( e => setErrors(Object.entries(e.error).flat()))
+                }
+            })
     }
 
   return ( 
     <div className="form-container">
+        <div className="errors-msg">{errors}</div>
         <form className="form1" onSubmit={handleSubmit}>
             <label>
-                Rating
+                Rating:
             <input
             type="number"
             placeholder="rating..."
@@ -43,7 +50,7 @@ function ReviewCreateForm({ user, hideForm, reRender, review }) {
             onChange={(e) => setRating(e.target.value)} />
             </label>
             <label>
-                Description
+                Description:
                 <input 
                 type="text"
                 placeholder="description..."
@@ -51,7 +58,7 @@ function ReviewCreateForm({ user, hideForm, reRender, review }) {
                 onChange={(e) => setDescription(e.target.value)} />
             </label>
             <label>
-                Movie
+                Movie:
                 <select onChange={(e) => setMovie(e.target.value)}>
                     <option value="1">Joker</option>
                     <option value="2">Parasite</option>

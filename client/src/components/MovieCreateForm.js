@@ -42,7 +42,7 @@ function MovieCreateForm({ user, hideForm, reRender }) {
     <div className="form-container">
       <form className="form2" onSubmit={handleSubmit}>
         <label>
-          Title
+          Title:
           <input 
           type="text"
           placeholder="title"
@@ -50,7 +50,7 @@ function MovieCreateForm({ user, hideForm, reRender }) {
           onChange={(e) => setTitle(e.target.value)} />
         </label>
         <label>
-          Actors
+          Actors:
           <input 
           type="text"
           placeholder="actors"
@@ -58,7 +58,7 @@ function MovieCreateForm({ user, hideForm, reRender }) {
           onChange={(e) => setActors(e.target.value)} />
         </label>
         <label>
-          Genre
+          Genre:
           <input 
           type="text"
           placeholder="genre"
@@ -66,7 +66,7 @@ function MovieCreateForm({ user, hideForm, reRender }) {
           onChange={(e) => setGenre(e.target.value)} />
         </label>
         <label>
-          Image_url
+          Image_url:
           <input 
           type="text"
           placeholder="image_url"
@@ -74,7 +74,7 @@ function MovieCreateForm({ user, hideForm, reRender }) {
           onChange={(e) => setImage_url(e.target.value)} />
         </label>
         <label>
-          Director
+          Director:
           <input 
           type="text"
           placeholder="director"

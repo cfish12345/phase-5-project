@@ -28,7 +28,7 @@ function App() {
   return (
     <div>
       <div>
-      <h1 className="title">Blockbuster</h1>
+      <h1 className="title">BlockBuster</h1>
       { user ?
       <nav className="nav">
         <Link className="link" to="Home">Home</Link>

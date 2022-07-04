@@ -12,7 +12,7 @@ function UserReviews({ user }) {
   }, [])
 
 
-  const reviewArr = reviews.map(review => <UserReviewsCard review={review}/>)
+  const reviewArr = reviews.map(review => <UserReviewsCard review={review} user={user}/>)
 
 
   return (

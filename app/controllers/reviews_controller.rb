@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
 rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+skip_before_action :authorized, only: [:create]
 
     def index
         if params[:user_id]
@@ -23,7 +24,21 @@ rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
     def create
         review = Review.create!(review_params)
-        render json: review, status: :created
+        if review
+            render json: review, status: :created
+        else
+            render json: {error: "Invalid review" }, status: :unprocessable_entity
+        end
+    end
+
+    def destroy
+        review = Review.find(params[:id])
+        if review
+            review.destroy
+            render json: {}
+        else
+            render json: {error: "Review not found" }, status: :not_found
+        end
     end
 
     

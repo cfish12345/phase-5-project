@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function UserReviewsCard({ review }) {
+function UserReviewsCard({ review, user }) {
 
   console.log(review)
   return (
@@ -10,6 +10,7 @@ function UserReviewsCard({ review }) {
       <img className="review-img" src={review.movie.image_url}></img>
       <h5>{review.movie.director}</h5>
       <h5>{review.description}</h5>
+      <h5></h5>
     </div>
   )
 }
