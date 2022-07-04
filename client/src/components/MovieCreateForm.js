@@ -26,16 +26,21 @@ function MovieCreateForm({ user, hideForm, reRender }) {
       },
       body: JSON.stringify(movies),
     })
-      .then((r) => r.json())
-      .then(
-        setTitle(''),
-        setActors(''),
-        setGenre(''),
-        setImage_url(''),
-        setDirector(''),
-      )
-      .then(hideForm)
-      .then(reRender)
+      .then(r => {
+        if(r.ok){
+          r.json().then(
+          setTitle(''),
+          setActors(''),
+          setGenre(''),
+          setImage_url(''),
+          setDirector(''),
+          )
+          .then(hideForm)
+          .then(reRender)
+        } else {
+          r.json().then( e => setErrors(Object.entries(e.error).flat()))
+        }
+      })
   }
 
   return (
