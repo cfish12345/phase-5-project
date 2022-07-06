@@ -1,15 +1,11 @@
 import React, { useState } from 'react'
+import UserReview from "./UserReview"
 
-function UserReviewsCard({ review, user }) {
+function UserReviewsCard({ reviews, user }) {
 
-  console.log(review)
   return (
-    <div className="review-container">
-      <h1>{review.movie.title}</h1>
-      <h2>Rating: {review.rating}/10</h2>
-      <img className="review-img" src={review.movie.image_url}></img>
-      <h5>Director: {review.movie.director}</h5>
-      <h5>{review.description}</h5>
+    <div>
+      {reviews.map(review => <UserReview review={review} key={review.id} user={user}/>)}
     </div>
   )
 }
