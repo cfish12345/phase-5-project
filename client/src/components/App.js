@@ -32,8 +32,8 @@ function App() {
       { user ?
       <nav className="nav">
         <Link className="link" to="Home">Home</Link>
-        <Link className="link" to="/Reviews">My Reviews</Link>
         <Link className="link" to="/Movies">Movies</Link>
+        <Link className="link" to="/Reviews">My Reviews</Link>
         <Link className="link" to="/Actors">All Reviews</Link>
         <Logout onLogout={onLogout} user={user}/>
       </nav> : null}

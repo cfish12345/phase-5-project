@@ -40,20 +40,20 @@ function Auth({ setCurrentUser }) {
      {showCreate ? (
         <form className="form1" onSubmit={onSubmit}>
             <label>
-                Username
-                <input type="text" value={username} onChange={(e) => setUserName(e.target.value)}/>
+                Username:
+                <input className="form1-input" type="text" value={username} onChange={(e) => setUserName(e.target.value)}/>
             </label>
             <label>
-                Password
-                <input type="text" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                Password:
+                <input className="form1-input" type="text" value={password} onChange={(e) => setPassword(e.target.value)}/>
             </label>
             <label>
-                Name
-                <input type="text" value={name} onChange={(e) => setName(e.target.value)}/>
+                Name:
+                <input className="form1-input" type="text" value={name} onChange={(e) => setName(e.target.value)}/>
             </label>
             <label>
-                Profile Picture
-                <input type="text" value={profile_img} onChange={(e) => setProfile_img(e.target.value)}/>
+                Profile Picture:
+                <input className="form1-input" type="text" value={profile_img} onChange={(e) => setProfile_img(e.target.value)}/>
             </label>
             <button className="form-btn1" type="submit">Create Account</button>
         </form>
@@ -61,6 +61,7 @@ function Auth({ setCurrentUser }) {
         <div className="form-container">
             {!showCreate ? <button className="btn-2" onClick={newUserForm}>Create Account</button> : null }
         </div>
+        <div>{errors}</div>
     </>
   )
 }

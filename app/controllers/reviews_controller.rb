@@ -7,7 +7,7 @@ skip_before_action :authorized, only: [:create]
             user = User.find(params[:user_id])
             reviews = user.reviews.order(:rating)
         else
-            reviews = Review.all
+            reviews = Review.all.order(:movie_id)
         end
         render json: reviews, include: :movie, status: :ok
     end

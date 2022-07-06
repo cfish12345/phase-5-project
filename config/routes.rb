@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index, :create]
   end
 
-  resources :movies, only:[:index, :show, :create] do
+  resources :movies, only:[:index, :show, :create, :update] do
     resources :reviews, only:[:index, :show]
   end
 

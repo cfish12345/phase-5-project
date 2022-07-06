@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 function ReviewCreateForm({ user, hideForm, reRender, review }) {
 
@@ -6,6 +6,7 @@ function ReviewCreateForm({ user, hideForm, reRender, review }) {
     const [description, setDescription] = useState('');
     const [movie, setMovie] = useState('');
     const [errors, setErrors] = useState([]);
+    const [movies, setMovies] = useState([]);
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -32,18 +33,26 @@ function ReviewCreateForm({ user, hideForm, reRender, review }) {
                     .then(hideForm)
                     .then(reRender)
                 } else {
-                    r.json().then( e => setErrors(Object.entries(e.error).flat()))
+                    r.json().then( e => setErrors(e.error))
                 }
             })
     }
+
+    useEffect(() => {
+        fetch(`/movies`)
+        .then(r => r.json())
+        .then(data => setMovies(data))
+    }, [])
+    console.log(movies)
 
   return ( 
     <div className="form-container">
         <div className="errors-msg">{errors}</div>
         <form className="form1" onSubmit={handleSubmit}>
             <label>
-                Rating:
+                Rating(1-10):
             <input
+            className="form1-input"
             type="number"
             placeholder="rating..."
             value={rating}
@@ -51,7 +60,8 @@ function ReviewCreateForm({ user, hideForm, reRender, review }) {
             </label>
             <label>
                 Description:
-                <input 
+                <input
+                className="form1-input" 
                 type="text"
                 placeholder="description..."
                 value={description}
@@ -59,27 +69,8 @@ function ReviewCreateForm({ user, hideForm, reRender, review }) {
             </label>
             <label>
                 Movie:
-                <select onChange={(e) => setMovie(e.target.value)}>
-                    <option value="1">Joker</option>
-                    <option value="2">Parasite</option>
-                    <option value="3">Once Upon A Time In Hollywood</option>
-                    <option value="4">Black Panther</option>
-                    <option value="5">Roma</option>
-                    <option value="6">Get Out</option>
-                    <option value="7">The Shape of Water</option>
-                    <option value="8">Mad Max: Fury Road</option>
-                    <option value="9">The Revenant</option>
-                    <option value="10">The Social Network</option>
-                    <option value="11">Avatar</option>
-                    <option value="12">Slumdog Millionaire</option>
-                    <option value="13">The Hurt Locker</option>
-                    <option value="14">Iron Man</option>
-                    <option value="15">Borat</option>
-                    <option value="16">There Will Be Blood</option>
-                    <option value="17">No Country for Old Men</option>
-                    <option value="18">The Departed</option>
-                    <option value="19">Casino Royale</option>
-                    <option value="20">Million Dollar Baby</option>
+                <select className="form1-input" onChange={(e) => setMovie(e.target.value)}>
+                    {movies.map((data) => <option value={data.title}>{data.title}</option>)}
                 </select>
             </label>
             <button className="form-button1" type="submit">Save</button>

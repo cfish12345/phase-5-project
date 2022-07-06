@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
 rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 rescue_from ActiveRecord::RecordNotFound, with: :record_invalid
-skip_before_action :authorized, only:[:index]
+before_action :authorized, only:[:index]
     def index
         render json: Movie.all, status: :ok
     end
@@ -17,6 +17,16 @@ skip_before_action :authorized, only:[:index]
             render json: movie, status: :created
         else
             render json: { error: "Movie not created" }, status: :unprocessable_entity
+        end
+    end
+
+    def update
+        movie = Movie.find(params[:id])
+        if movie
+            movie.update!(movie_params)
+            render json: movie, status: :ok
+        else
+            render json: {error: "Not Updated" }, status: :unprocessable_entity
         end
     end
 

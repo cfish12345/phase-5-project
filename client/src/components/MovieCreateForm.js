@@ -8,6 +8,7 @@ function MovieCreateForm({ user, hideForm, reRender }) {
   const [genre, setGenre] = useState('');
   const [image_url, setImage_url] = useState('');
   const [director, setDirector] = useState('');
+  const [errors, setErrors] = useState([]);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -38,17 +39,19 @@ function MovieCreateForm({ user, hideForm, reRender }) {
           .then(hideForm)
           .then(reRender)
         } else {
-          r.json().then( e => setErrors(Object.entries(e.error).flat()))
+          r.json().then( e => setErrors(Object.entries(e.error.message).flat()))
         }
       })
   }
 
   return (
     <div className="form-container">
+      <div className="errors-msg">{errors}</div>
       <form className="form2" onSubmit={handleSubmit}>
         <label>
           Title:
-          <input 
+          <input
+          className="form1-input" 
           type="text"
           placeholder="title"
           value={title}
@@ -56,7 +59,8 @@ function MovieCreateForm({ user, hideForm, reRender }) {
         </label>
         <label>
           Actors:
-          <input 
+          <input
+          className="form1-input" 
           type="text"
           placeholder="actors"
           value={actors}
@@ -64,7 +68,8 @@ function MovieCreateForm({ user, hideForm, reRender }) {
         </label>
         <label>
           Genre:
-          <input 
+          <input
+          className="form1-input" 
           type="text"
           placeholder="genre"
           value={genre}
@@ -72,7 +77,8 @@ function MovieCreateForm({ user, hideForm, reRender }) {
         </label>
         <label>
           Image_url:
-          <input 
+          <input
+          className="form1-input" 
           type="text"
           placeholder="image_url"
           value={image_url}
@@ -80,7 +86,8 @@ function MovieCreateForm({ user, hideForm, reRender }) {
         </label>
         <label>
           Director:
-          <input 
+          <input
+          className="form1-input" 
           type="text"
           placeholder="director"
           value={director}

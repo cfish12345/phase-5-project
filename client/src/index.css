@@ -138,12 +138,11 @@ code {
     font-variant: normal; 
     text-transform: none; 
     background-image: linear-gradient(to right, rgb(28, 110, 164) 0%, rgb(35, 136, 203) 50%, rgb(20, 78, 117) 100%); 
-    box-shadow: rgb(0, 0, 0) 5px 5px 15px 5px;
     border: 2px solid rgb(28, 110, 164); 
     display: inline-block;
     width: 15%;
     position: relative;
-    bottom: 30px;
+    bottom: 5px;
   }
 .del-btn:hover {
     background: #1C6EA4; 
@@ -151,3 +150,19 @@ code {
 .del-btn:active {
     background: #144E75; 
   }
+
+.form1 {
+  color: rgb(0, 238, 255);
+  text-shadow: 2px 2px 0 black, 4px 4px 0 black;
+}
+
+.form-container {
+  color: rgb(0, 238, 255);
+  text-shadow: 2px 2px 0 black, 4px 4px 0 black;
+}
+
+.form1-input {
+  color:black;
+  text-shadow:rgb(0, 238, 255);
+  background: rgb(218, 218, 218)
+}
