@@ -50,6 +50,15 @@ function ReviewCreateForm({ user, hideForm, reRender, review }) {
         <div className="errors-msg">{errors}</div>
         <form className="form1" onSubmit={handleSubmit}>
             <label>
+                Description:
+                <textarea
+                className="form2-input" 
+                type="text"
+                placeholder="review..."
+                value={description}
+                onChange={(e) => setDescription(e.target.value)} />
+            </label>
+            <label>
                 Rating(1-10):
             <input
             className="form1-input"
@@ -57,15 +66,6 @@ function ReviewCreateForm({ user, hideForm, reRender, review }) {
             placeholder="rating..."
             value={rating}
             onChange={(e) => setRating(e.target.value)} />
-            </label>
-            <label>
-                Description:
-                <input
-                className="form1-input" 
-                type="text"
-                placeholder="description..."
-                value={description}
-                onChange={(e) => setDescription(e.target.value)} />
             </label>
             <label>
                 Movie:

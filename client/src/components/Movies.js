@@ -1,12 +1,15 @@
 import React, { useState, useEffect  } from 'react'
 import MovieCard from "./MovieCard"
 import MovieCreateForm from "./MovieCreateForm"
+import MovieCardFavorites from './MovieCardFavorites';
+import SearchBox2 from "./SearchBox2"
 
 function Movies({ user }) {
 
     const [movies, setMovies] = useState([]);
     const [toggleCreate, setToggleCreate] = useState(true);
     const [render, setRender] = useState(true);
+    const [search, setSearch] = useState('');
 
 
     useEffect(() => {
@@ -17,9 +20,9 @@ function Movies({ user }) {
         });
     }, [user.id, render]);
 
-    
-
-    let movieArr = movies.map(movie => <MovieCard key={movie.id} movie={movie} reRender={reRender}/>)
+    const handleSearch = (e) => {
+        setSearch(e.target.value.toLowerCase())
+    }
 
     function hideForm() {
         setToggleCreate(!toggleCreate)
@@ -28,6 +31,9 @@ function Movies({ user }) {
     function reRender() {
         setRender(!render)
     }
+
+    const filteredMovies = movies.filter((movie) => movie.genre.toLowerCase().includes(search))
+
   return (
     <>
     <h2 className="profile-info">{user.username} <img className="profile-img" src={user.profile_img}></img></h2>
@@ -35,9 +41,8 @@ function Movies({ user }) {
     <button className="btn2" onClick={e => setToggleCreate(!toggleCreate)}>New Movie</button>
     {toggleCreate ? null : <MovieCreateForm user={user} hideForm={hideForm} reRender={reRender} />}
     <h1>Movies:</h1>
-    <div>
-        {movieArr}
-    </div>
+    <SearchBox2 search={search} handleSearch={handleSearch}/>
+    <MovieCard user={user} filteredMovies={filteredMovies} Favorites={MovieCardFavorites}/>
     </>
   )
 }

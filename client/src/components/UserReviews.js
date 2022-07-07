@@ -17,7 +17,7 @@ function UserReviews({ user }) {
   // const reviewArr = reviews.map(review => <UserReviewsCard review={review} user={user}/>)
 
   const handleSearch = (e) => {
-    setSearch(e.target.value)
+    setSearch(e.target.value.toLowerCase())
   }
 
   const filteredReviews = reviews.filter(review => review.movie.title.toLowerCase().includes(search))

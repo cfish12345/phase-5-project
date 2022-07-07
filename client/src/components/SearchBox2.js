@@ -4,7 +4,7 @@ function SearchBox({ movies, search, handleSearch  }) {
 
   return (
     <div className="col col-sm-4">
-        <label htmlFor="search" className="form1">Search By Movie:</label>
+        <label htmlFor="search" className="form1">Search By Genre:</label>
         <input
         className="form1-input"
         value={search}
