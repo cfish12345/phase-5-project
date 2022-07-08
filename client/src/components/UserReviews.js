@@ -4,13 +4,13 @@ import SearchBox from "./SearchBox"
 
 function UserReviews({ user }) {
 
-  const [reviews, setReviews] = useState([]);
+  const [movies, setMovies] = useState([]);
   const [search, setSearch] = useState('');
 
   useEffect(() => {
-    fetch(`/reviews`)
+    fetch(`/movies`)
     .then((r) => r.json())
-    .then(data => setReviews(data))
+    .then(data => setMovies(data))
   }, [])
 
 
@@ -20,14 +20,14 @@ function UserReviews({ user }) {
     setSearch(e.target.value.toLowerCase())
   }
 
-  const filteredReviews = reviews.filter(review => review.movie.title.toLowerCase().includes(search))
+  const filteredMovies = movies.filter(movie => movie.title.toLowerCase().includes(search))
 
 
   return (
     <>
        <h2 className="profile-info">{user.username} <img className="profile-img" src={user.profile_img}></img></h2>
        <SearchBox handleSearch={handleSearch} search={search}/>
-       <UserReviewsCard reviews={filteredReviews} user={user}/>
+       <UserReviewsCard movies={filteredMovies} user={user}/>
     </>
   )
 }

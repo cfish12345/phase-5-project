@@ -1,11 +1,14 @@
 class ReviewsController < ApplicationController
 rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
-skip_before_action :authorized, only: [:create]
+before_action :authorized, only: [:create]
 
     def index
         if params[:user_id]
             user = User.find(params[:user_id])
             reviews = user.reviews.order(:rating)
+        elsif params[:movie_id]
+            movie = Movie.find(params[:movie_id])
+            reviews = movie.reviews.order(:rating)
         else
             reviews = Review.all.order(:movie_id)
         end

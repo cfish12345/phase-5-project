@@ -3,14 +3,15 @@ import MovieCard from "./MovieCard"
 import MovieCreateForm from "./MovieCreateForm"
 import MovieCardFavorites from './MovieCardFavorites';
 import SearchBox2 from "./SearchBox2"
+import { Link } from "react-router-dom"
 
-function Movies({ user }) {
+function Movies({ user, favorite, addFavoriteMovie  }) {
 
     const [movies, setMovies] = useState([]);
     const [toggleCreate, setToggleCreate] = useState(true);
     const [render, setRender] = useState(true);
     const [search, setSearch] = useState('');
-    const [favorites, setFavorites] = useState([]);
+    // const [favorites, setFavorites] = useState([]);
 
 
     useEffect(() => {
@@ -33,10 +34,10 @@ function Movies({ user }) {
         setRender(!render)
     }
 
-    const addFavoriteMovie = (movie) => {
-        const newFavoriteList = [...favorites, movie];
-        setFavorites(newFavoriteList);
-    }
+    // const addFavoriteMovie = (movie) => {
+    //     const newFavoriteList = [...favorites, movie];
+    //     setFavorites(newFavoriteList);
+    // }
 
     const filteredMovies = movies.filter((movie) => movie.genre.toLowerCase().includes(search))
 
@@ -48,6 +49,7 @@ function Movies({ user }) {
     {toggleCreate ? null : <MovieCreateForm user={user} hideForm={hideForm} reRender={reRender} />}
     <h1>Movies:</h1>
     <SearchBox2 search={search} handleSearch={handleSearch}/>
+    <Link className="link" to="/MovieFavorites">Favorites</Link>
     <MovieCard user={user} filteredMovies={filteredMovies} Favorites={MovieCardFavorites} handleFavoriteClick={addFavoriteMovie}/>
     </>
   )

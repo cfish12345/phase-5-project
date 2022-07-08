@@ -6,11 +6,13 @@ import Logout from "./Logout"
 import Reviews from "./Reviews"
 import UserReviews from "./UserReviews"
 import Home from "./Home"
+import MovieFavorites from "./MovieFavorites"
 
 
 function App() {
 
   const [user, setUser] = useState(null);
+  const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -25,6 +27,12 @@ function App() {
   function onLogout () {
     setUser(null)
   }
+
+  const addFavoriteMovie = (movie) => {
+    const newFavoriteList = [...favorites, movie];
+    setFavorites(newFavoriteList);
+  }
+
   
   return (
     <div>
@@ -36,16 +44,18 @@ function App() {
         <Link className="link" to="/Movies">Movies</Link>
         <Link className="link" to="/Reviews">My Reviews</Link>
         <Link className="link" to="/Actors">All Reviews</Link>
+        {/* <Link className="link" to="/MovieFavorites">Favorites</Link> */}
         <Logout onLogout={onLogout} user={user}/>
       </nav> : null}
       </div>
       <div className="main">
         <Routes>
           <Route path="/" element={ user ? (<Navigate replace to="/Home" />) : (<Login onLogin={setUser} />) } />
-          <Route path="Movies" element={ user ? <Movies user={user} /> : <Navigate replace to="/" />}/>
+          <Route path="Movies" element={ user ? <Movies user={user} addFavoriteMovie={addFavoriteMovie}/> : <Navigate replace to="/" />}/>
           <Route path="Reviews" element={ user ? <Reviews user={user} /> : <Navigate replace to="/" />}/>
           <Route path="Actors" element={ user ? <UserReviews user={user} /> : <Navigate replace to="/" />}/>
           <Route path="Home" element={ user ? <Home user={user} /> : <Navigate replace to="/" />}/>
+          <Route path="MovieFavorites" element={ user ? <MovieFavorites user={user} favorites={favorites}/> : <Navigate replace to="/" />}/>
         </Routes>
       </div>
     </div>

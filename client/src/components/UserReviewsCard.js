@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import UserReview from "./UserReview"
 
-function UserReviewsCard({ reviews, user }) {
+function UserReviewsCard({ movies, user }) {
 
   return (
     <div>
-      {reviews.map(review => <UserReview review={review} key={review.id} user={user}/>)}
+      {movies.map(movie => <UserReview movie={movie} key={movie.id} user={user}/>)}
     </div>
   )
 }

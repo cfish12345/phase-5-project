@@ -1,9 +1,9 @@
 class MoviesController < ApplicationController
 rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 rescue_from ActiveRecord::RecordNotFound, with: :record_invalid
-before_action :authorized, only:[:index]
+skip_before_action :authorized, only:[:index]
     def index
-        render json: Movie.all, status: :ok
+        render json: Movie.all, include: :reviews, status: :ok
     end
 
     def show

@@ -7,8 +7,6 @@ function Reviews({ user, id }) {
     const [reviews, setReviews] = useState([]);
     const [toggleCreate, setToggleCreate] = useState(true);
     const [render, setRender] = useState(true);
-    const [movies, setMovies] = useState([]);
-    const [listMovies, setListMovies] = useState([]);
 
 
     useEffect(() => {
