@@ -1,7 +1,20 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
 
-function MovieFavorites({ favorites }) {
+function MovieFavorites({ favorites, setFavorites }) {
+
+  // useEffect(() => {
+  //   const data = window.localStorage.getItem('my-movie-favorites');
+  //   if ( data !== null ) setFavorites(JSON.parse(data));
+  // }, [])
+
+  // useEffect(() => {
+  //   window.localStorage.setItem('my-movie-favorites', JSON.stringify(favorites))
+  // }, [favorites])
+  useEffect(() => {
+    const movieFavorites = JSON.parse(localStorage.getItem('my-movie-favorites'));
+    setFavorites(movieFavorites)
+  }, []);
 
     
   return (

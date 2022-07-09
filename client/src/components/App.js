@@ -31,9 +31,14 @@ function App() {
     setUser(null)
   }
 
+  const saveToLocalStorage = (items) => {
+    localStorage.setItem('my-movie-favorites', JSON.stringify(items));
+  };
+  
   const addFavoriteMovie = (movie) => {
     const newFavoriteList = [...favorites, movie];
     setFavorites(newFavoriteList);
+    saveToLocalStorage(newFavoriteList);
   }
 
   
@@ -58,7 +63,7 @@ function App() {
           <Route path="Reviews" element={ user ? <Reviews user={user} /> : <Navigate replace to="/" />}/>
           <Route path="Actors" element={ user ? <UserReviews user={user} /> : <Navigate replace to="/" />}/>
           <Route path="Home" element={ user ? <Home user={user} /> : <Navigate replace to="/" />}/>
-          <Route path="MovieFavorites" element={ user ? <MovieFavorites user={user} favorites={favorites}/> : <Navigate replace to="/" />}/>
+          <Route path="MovieFavorites" element={ user ? <MovieFavorites user={user} favorites={favorites} setFavorites={setFavorites}/> : <Navigate replace to="/" />}/>
         </Routes>
       </div>
     </div>
