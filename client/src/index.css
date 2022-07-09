@@ -199,3 +199,12 @@ code {
   width: 500px;
   height: 100px !important;
 }
+
+.link2 {
+  font-size: 14px;
+  color: cyan;
+  text-decoration: none;
+  padding: 10px;
+  position: relative;
+  bottom: 10px
+}

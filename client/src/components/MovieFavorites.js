@@ -3,10 +3,12 @@ import { Link } from "react-router-dom"
 
 function MovieFavorites({ favorites }) {
 
-    console.log('favorites', favorites)
+    
   return (
-    <div>
-        <Link className="link" to="/Movies">Back to Movies</Link>
+    <>
+      <div>
+      <Link className="link2" to="/Movies">Back to Movies</Link>
+      </div>
       {favorites.map((favorite, index) => (
         <div className="review-container">
             <h1>{favorite.title}</h1>
@@ -16,7 +18,7 @@ function MovieFavorites({ favorites }) {
             <h5>Genre: {favorite.genre}</h5> 
         </div>
       ))}
-    </div>
+    </>
     
   )
 }

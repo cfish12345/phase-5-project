@@ -5,7 +5,7 @@ wrap_parameters format: []
 skip_before_action :authorized, only: [:create, :index, :show]
 
     def index
-        render json: User.all, status: :ok
+        render json: User.all, include: :reviews, status: :ok
     end
 
     def show

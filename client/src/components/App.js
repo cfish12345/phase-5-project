@@ -7,6 +7,7 @@ import Reviews from "./Reviews"
 import UserReviews from "./UserReviews"
 import Home from "./Home"
 import MovieFavorites from "./MovieFavorites"
+import useLocalStorage from "react-use-localstorage";
 
 
 function App() {
@@ -21,6 +22,8 @@ function App() {
       }
     });
   }, []);
+
+  
 
   if(!user) return <Login onLogin={setUser}/>
 
