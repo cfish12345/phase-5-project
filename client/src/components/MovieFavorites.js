@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
+import RemoveFavorites from './RemoveFavorites';
 
-function MovieFavorites({ favorites, setFavorites }) {
+function MovieFavorites({ favorites, setFavorites, removeFavoriteMovie, movie }) {
 
   // useEffect(() => {
   //   const data = window.localStorage.getItem('my-movie-favorites');
@@ -24,6 +25,12 @@ function MovieFavorites({ favorites, setFavorites }) {
       </div>
       {favorites.map((favorite, index) => (
         <div className="review-container">
+          <div 
+          className='overlay d-flex align-items-center justify-content-center'
+          onClick={() => removeFavoriteMovie(movie)}
+          >
+          <RemoveFavorites />
+          </div>
             <h1>{favorite.title}</h1>
             <img className="movie-img" src={favorite.image_url}></img>
             <h5>Actors: {favorite.actors}</h5>

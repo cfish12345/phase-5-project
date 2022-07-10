@@ -41,6 +41,13 @@ function App() {
     saveToLocalStorage(newFavoriteList);
   }
 
+  const removeFavoriteMovie = (movie) => {
+    const newFavoriteList = favorites.filter(
+      (favorite) => favorite.id !== movie.id
+    );
+    setFavorites(newFavoriteList);
+  }
+
   
   return (
     <div>
@@ -63,7 +70,7 @@ function App() {
           <Route path="Reviews" element={ user ? <Reviews user={user} /> : <Navigate replace to="/" />}/>
           <Route path="Actors" element={ user ? <UserReviews user={user} /> : <Navigate replace to="/" />}/>
           <Route path="Home" element={ user ? <Home user={user} /> : <Navigate replace to="/" />}/>
-          <Route path="MovieFavorites" element={ user ? <MovieFavorites user={user} favorites={favorites} setFavorites={setFavorites}/> : <Navigate replace to="/" />}/>
+          <Route path="MovieFavorites" element={ user ? <MovieFavorites user={user} favorites={favorites} setFavorites={setFavorites} removeFavoriteMovie={removeFavoriteMovie}/> : <Navigate replace to="/" />}/>
         </Routes>
       </div>
     </div>
