@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 
-const Movie = ({ movie, user, Favorites, hFC}) => {
+
+function Movie({ movie, user, Favorites, hFC}) {
+
+  
+
   return (
     <div className="review-container">
     <h1>{movie.title}</h1>

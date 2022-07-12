@@ -5,7 +5,7 @@ import MovieCardFavorites from './MovieCardFavorites';
 import SearchBox2 from "./SearchBox2"
 import { Link } from "react-router-dom"
 
-function Movies({ user, favorite, addFavoriteMovie  }) {
+function Movies({ user, addFavoriteMovie  }) {
 
     const [movies, setMovies] = useState([]);
     const [toggleCreate, setToggleCreate] = useState(true);

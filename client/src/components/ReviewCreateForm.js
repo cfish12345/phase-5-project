@@ -43,7 +43,6 @@ function ReviewCreateForm({ user, hideForm, reRender, review }) {
         .then(r => r.json())
         .then(data => setMovies(data))
     }, [])
-    console.log(movies)
 
   return ( 
     <div className="form-container">
