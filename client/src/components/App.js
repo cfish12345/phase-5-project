@@ -7,7 +7,6 @@ import Reviews from "./Reviews"
 import UserReviews from "./UserReviews"
 import Home from "./Home"
 import MovieFavorites from "./MovieFavorites"
-import useLocalStorage from "react-use-localstorage";
 
 
 function App() {
@@ -41,11 +40,11 @@ function App() {
     saveToLocalStorage(newFavoriteList);
   }
 
-  const removeFavoriteMovie = (movie) => {
-    const newFavoriteList = favorites.filter(
-      (favorite) => favorite.id !== movie.id
-    );
+  const removeFavorite = (favorite, index) => {
+    const truth = favorite.id = index
+    const newFavoriteList = favorites.filter((favorite) => favorite.id !== index);
     setFavorites(newFavoriteList);
+    saveToLocalStorage(newFavoriteList);
   }
 
   
@@ -70,7 +69,7 @@ function App() {
           <Route path="Reviews" element={ user ? <Reviews user={user} /> : <Navigate replace to="/" />}/>
           <Route path="Actors" element={ user ? <UserReviews user={user} /> : <Navigate replace to="/" />}/>
           <Route path="Home" element={ user ? <Home user={user} /> : <Navigate replace to="/" />}/>
-          <Route path="MovieFavorites" element={ user ? <MovieFavorites user={user} favorites={favorites} setFavorites={setFavorites} removeFavoriteMovie={removeFavoriteMovie}/> : <Navigate replace to="/" />}/>
+          <Route path="MovieFavorites" element={ user ? <MovieFavorites user={user} favorites={favorites} setFavorites={setFavorites} removeFavorite={removeFavorite}/> : <Navigate replace to="/" />}/>
         </Routes>
       </div>
     </div>
