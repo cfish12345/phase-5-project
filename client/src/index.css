@@ -49,6 +49,8 @@ code {
   height: 100%;
   width: 100%;
   object-fit: contain;
+  position: relative;
+  bottom: 50px;
 }
 
 .review-container {
@@ -132,6 +134,16 @@ code {
   background: black;
 }
 
+.title2 {
+  position: relative;
+  bottom: 10px;
+  text-align: center;
+  font-size: 60px;
+  background-color: black;
+  opacity: 75%;
+  color: rgb(0, 238, 255);
+}
+
 .home-page {
   text-align: center;
 }
@@ -207,4 +219,14 @@ code {
   padding: 10px;
   position: relative;
   bottom: 10px
+}
+
+.rating {
+  position: relative;
+  bottom: 20px;
+}
+
+.description {
+  position: relative;
+  bottom: 30px;
 }

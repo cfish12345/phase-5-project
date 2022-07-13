@@ -41,7 +41,7 @@ function Movies({ user, addFavoriteMovie }) {
     {/* <img className="profile-pic"src={user.profile_img}></img> */}
     <button className="btn2" onClick={e => setToggleCreate(!toggleCreate)}>New Movie</button>
     {toggleCreate ? null : <MovieCreateForm user={user} hideForm={hideForm} reRender={reRender} />}
-    <h1>Movies:</h1>
+    <h1 className="title2">Movies:</h1>
     <SearchBox2 search={search} handleSearch={handleSearch}/>
     <Link className="link" to="/MovieFavorites">Favorites</Link>
     <MovieCard user={user} filteredMovies={filteredMovies} Favorites={MovieCardFavorites} handleFavoriteClick={addFavoriteMovie}/>

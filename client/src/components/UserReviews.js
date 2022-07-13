@@ -26,6 +26,7 @@ function UserReviews({ user }) {
   return (
     <>
        <h2 className="profile-info">{user.username} <img className="profile-img" src={user.profile_img}></img></h2>
+       <h1 className="title2">All Reviews:</h1>
        <SearchBox handleSearch={handleSearch} search={search}/>
        <UserReviewsCard movies={filteredMovies} user={user}/>
     </>

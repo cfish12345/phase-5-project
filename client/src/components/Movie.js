@@ -7,7 +7,7 @@ function Movie({ movie, user, Favorites, hFC}) {
 
   return (
     <div className="review-container">
-    <h1>{movie.title}</h1>
+    <h2>{movie.title}</h2>
     <img className="movie-img" src={movie.image_url}></img>
     <div 
       className='overlay d-flex align-items-center justify-content-center'

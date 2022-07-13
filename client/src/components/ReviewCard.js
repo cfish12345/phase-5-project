@@ -20,11 +20,11 @@ function ReviewCard({ review, user }) {
 
   return (
     <div className="review-container" >
-    <h1>{review.movie.title}</h1>
-    <h2>Rating: {review.rating}/10</h2>
-    <img className="review-img"src={review.movie.image_url}></img>
+    <h2>{review.movie.title}</h2>
+    <h3 className="rating">Rating: {review.rating}/10</h3>
+    <img className="movie-img"src={review.movie.image_url}></img>
     <div>
-    <h5>Review: {review.description}</h5>
+    <h5 className="description">Review: {review.description}</h5>
     <h5 className="username">{user.username}</h5>
     <button className="del-btn" onClick={e => deleteReview(e)}>🗑️</button>
     </div>

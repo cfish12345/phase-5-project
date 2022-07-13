@@ -8,6 +8,7 @@ function MovieFavorites({ favorites, setFavorites, removeFavorite }) {
     const movieFavorites = JSON.parse(localStorage.getItem('my-movie-favorites'));
     setFavorites(movieFavorites)
   }, []);
+  
 
   
   return (
@@ -15,6 +16,9 @@ function MovieFavorites({ favorites, setFavorites, removeFavorite }) {
       <div>
       <Link className="link2" to="/Movies">Back to Movies</Link>
       </div>
+      <h1 className="title2">
+        My Movie Favorites
+      </h1>
       {favorites.map((favorite, index) => (
         <div className="review-container" key={favorite.id}>
           <div 
@@ -23,11 +27,13 @@ function MovieFavorites({ favorites, setFavorites, removeFavorite }) {
           >
           <RemoveFavorites />
           </div>
-            <h1>{favorite.title}</h1>
+            <h2>❤️{favorite.title}</h2>
             <img className="movie-img" src={favorite.image_url}></img>
+            <div className="description">
             <h5>Actors: {favorite.actors}</h5>
             <h5>Director: {favorite.director}</h5>
-            <h5>Genre: {favorite.genre}</h5> 
+            <h5>Genre: {favorite.genre}</h5>
+            </div> 
         </div>
       ))}
     </>
