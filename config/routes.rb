@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   end
 
   resources :movies, only:[:index, :show, :create, :update] do
-    resources :reviews, only:[:index, :show]
+    resources :reviews, only:[:index, :show] do
+      resources :users, only:[:index, :show]
+    end
   end
 
   post "/login", to: "sessions#create"

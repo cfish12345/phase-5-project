@@ -1,13 +1,27 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 function UserReview ({ movie, user }) {
+
+  // const [userId, setUserId] = useState('');
+
+  // const handleClick = (e) => {
+  //   const username = movie.reviews.map(review => review.user_id)
+  //   username.map(user => user)
+  //   fetch(`/users`).then((r) => {
+  //       if (r.ok) {
+  //         r.json().then((data) => console.log(data[username - 1]))
+  //       }
+  //     })
+  // }
+
 
   if (movie.reviews.length > 0) {
     return (
       <div className="review-container">
           <h2>{movie.title}</h2>
           <img className='review-img' src={movie.image_url}></img>
+          {/* <button onClick={handleClick}>Display User</button> */}
           <div>
       </div>
       <div>
