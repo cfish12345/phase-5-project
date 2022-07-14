@@ -32,7 +32,7 @@ function Reviews({ user, id }) {
     <h2 className="profile-info">{user.username}<img className="profile-img" src={user.profile_img}></img></h2>
     <button className="btn3" onClick={e => setToggleCreate(!toggleCreate)}>New Review</button>
     {toggleCreate ? null : <ReviewCreateForm user={user} hideForm={hideForm} reRender={reRender} review={reviewArr}/>}
-    <h1 className="title2">Reviews:</h1>
+    <h1 className="title2">⭐ Reviews ⭐</h1>
     <div>
     {reviewArr}
     </div>

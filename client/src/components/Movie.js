@@ -3,8 +3,6 @@ import React, { useState } from 'react'
 
 function Movie({ movie, user, Favorites, hFC}) {
 
-  
-
   return (
     <div className="review-container">
     <h2>{movie.title}</h2>

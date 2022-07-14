@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 
 function MovieCreateForm({ user, hideForm, reRender }) {
-
-  const [movie, setMovie] = useState('');
+  
   const [title, setTitle] = useState('');
   const [actors, setActors] = useState('');
   const [genre, setGenre] = useState('');

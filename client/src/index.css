@@ -221,6 +221,16 @@ code {
   bottom: 10px
 }
 
+.link3 {
+  font-size: 20px;
+  color: cyan;
+  text-decoration: none;
+  padding: 10px;
+  position: relative;
+  bottom: 35px;
+  left: 50em;
+}
+
 .rating {
   position: relative;
   bottom: 20px;
@@ -229,4 +239,18 @@ code {
 .description {
   position: relative;
   bottom: 30px;
+}
+
+.t1 {
+  font-size: 20px;
+  color: cyan;
+  text-decoration: none;
+  background-color: red;
+}
+
+.t2 {
+  font-size: 20px;
+  color: cyan;
+  text-decoration: none;
+  background-color: green;
 }

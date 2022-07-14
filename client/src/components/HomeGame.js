@@ -15,6 +15,9 @@ function HomeGame({ user, movies }) {
         setGuess(e.target.value.toLowerCase())
     }
 
+    var str = movies[randomMovie].title
+    str = str.slice(0, -6)
+
   return (
     <>
         <button onClick={randomMovies}>New Random Movie</button>
@@ -27,11 +30,10 @@ function HomeGame({ user, movies }) {
         placeholder="Guess the title..."
         onChange={handleSearch}
         />
-        {/* <button className="form-button1" type="submit">Guess</button> */}
         <div>
-            {guess === movies[randomMovie].title.toLowerCase() 
-            ? <div>🥳 Correct! 🥳</div>
-            : <div>👀 Title and Date 👀</div>
+            {guess === str.toLowerCase() 
+            ? <div className="t2">🥳 Correct! 🥳</div>
+            : <div className="t1">👀 example: "joker" 👀</div>
         }
         </div>
     </>
