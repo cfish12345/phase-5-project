@@ -25,6 +25,15 @@ function Login({ onLogin }) {
             })
     }
 
+    const handleErrors = () => {
+        if (errors.length <= 2) {
+            return <div className="errors-msg">{errors[1]}</div>
+        } else {
+            return <div>Profile Not Found</div>
+        }
+    }
+
+
   return (
     <>
     <div className="form-container">Login
@@ -45,7 +54,7 @@ function Login({ onLogin }) {
         </form>
     </div>
     <div className="form-container">
-        <div className="errors-msg">{errors}</div>
+        {handleErrors()}
         <Auth setCurrentUser={onLogin} />
     </div>
     </>
