@@ -73,7 +73,7 @@ function ReviewCreateForm({ user, hideForm, reRender }) {
                     {movies.map((data) => <option key={data.id} value={data.id}>{data.title}</option>)}
                 </select>
             </label>
-            <button className="form-button1" type="submit">Save</button>
+            <button className="btn2" type="submit">Save</button>
         </form>
     </div>
   )

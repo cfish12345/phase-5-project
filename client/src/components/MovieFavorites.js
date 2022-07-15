@@ -17,7 +17,7 @@ function MovieFavorites({ favorites, setFavorites, removeFavorite }) {
       <Link className="link2" to="/Movies">Back to Movies</Link>
       </div>
       <h1 className="title2">
-        My Movie Favorites
+      ❤️ My Movie Favorites ❤️
       </h1>
       {favorites.map((favorite, index) => (
         <div className="review-container" key={favorite.id}>

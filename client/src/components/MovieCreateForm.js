@@ -102,7 +102,7 @@ function MovieCreateForm({ user, hideForm, reRender }) {
           value={director}
           onChange={(e) => setDirector(e.target.value)} />
         </label>
-        <button className="form-button1" type="submit">Save</button>
+        <button className="btn2" type="submit">Save</button>
       </form>
     </div>
   )

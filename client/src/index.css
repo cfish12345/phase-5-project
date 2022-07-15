@@ -116,6 +116,17 @@ code {
   right: 10px;
 }
 
+.btn2 {
+  background: black;
+  border: none;
+  color: rgb(0, 238, 255);
+  padding: 8px 22px;
+  text-align: center;
+  font-size: 13px;
+  border-radius: 2px;
+  position: relative;
+}
+
 .profile-info {
   position: relative;
   text-align: right;
@@ -149,9 +160,16 @@ code {
 }
 
 .welcome {
-  color: white;
+  color: rgb(0, 238, 255);
   text-shadow: 2px 2px 0 black, 4px 4px 0 black;
   font-size: 100px;
+  
+}
+
+.welcome2 {
+  color: white;
+  text-shadow: 2px 2px 0 black, 4px 4px 0 black;
+  font-size: 25px;
 }
 
 .errors-msg {
@@ -253,4 +271,8 @@ code {
   color: cyan;
   text-decoration: none;
   background-color: green;
+}
+
+.rating {
+  color: black;
 }

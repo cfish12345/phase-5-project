@@ -20,7 +20,7 @@ function HomeGame({ user, movies }) {
 
   return (
     <>
-        <button onClick={randomMovies}>New Random Movie</button>
+        <button className="btn2" onClick={randomMovies}>New Random Movie</button>
         <div>
         <img src={movies[randomMovie].image_url}></img>
         </div>

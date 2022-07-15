@@ -32,9 +32,6 @@ function UserReview ({ movie, user }) {
             </div>
           ))}
       </div>
-          <Link to="/Reviews">
-            <button>New Review</button>
-          </Link>
       </div>
     )
   }

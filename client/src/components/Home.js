@@ -17,7 +17,8 @@ function Home({ user }) {
   return (
     <div className="home-page" >
         <h2 className="profile-info">Welcome back, {user.username} <img className="profile-img" src={user.profile_img}></img></h2>
-        <p className="welcome">This is the home page</p>
+        <p className="welcome">Welcome to BlockBuster</p>
+        <h3 className="welcome2">Find Movies you love. Write Reviews about your favorite movies. Enjoy your stay!</h3>
         <button className="btn2" onClick={(e) => setToggle(!toggle)}>Guess That Movie!</button>
         {toggle ? null : <HomeGame user={user} movies={movies}/>}
     </div>
