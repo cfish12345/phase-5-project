@@ -17,7 +17,7 @@ function Reviews({ user, id }) {
         });
     }, [user.id, render]);
 
-    let reviewArr =  reviews.map(review => <ReviewCard key={review.id} review={review} reRender={reRender} user={user}/>)
+    let reviewArr =  reviews.map(review => <ReviewCard key={review.id} review={review} reviews={reviews} reRender={reRender} user={user}/>)
 
     function hideForm() {
         setToggleCreate(!toggleCreate)

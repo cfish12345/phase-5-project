@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-function ReviewCreateForm({ user, hideForm, reRender, review }) {
+function ReviewCreateForm({ user, hideForm, reRender }) {
 
     const [rating, setRating] = useState('');
     const [description, setDescription] = useState('');
@@ -69,7 +69,8 @@ function ReviewCreateForm({ user, hideForm, reRender, review }) {
             <label>
                 Movie:
                 <select className="form1-input" onChange={(e) => setMovie(e.target.value)}>
-                    {movies.map((data) => <option value={data.title}>{data.title}</option>)}
+                    <option></option>
+                    {movies.map((data) => <option key={data.id} value={data.id}>{data.title}</option>)}
                 </select>
             </label>
             <button className="form-button1" type="submit">Save</button>

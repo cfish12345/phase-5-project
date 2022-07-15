@@ -1,21 +1,18 @@
 import React, { useState, useEffect  } from 'react'
 import { Link } from 'react-router-dom'
 
-function ReviewCard({ review, user }) {
+function ReviewCard({ review, user, reviews, reRender }) {
 
     const {id, rating, description, movie_id} = review;
     const[toggleEdit, setToggleEdit] = useState(true);
-    const[render, setRender] = useState(true);
+    
 
-
-    function reRender() {
-      setRender(!render)
-  }
-
-    function deleteReview () {
-      fetch(`/reviews/${id}`, {
-        method: "DELETE"
+    function deleteReview (e) {
+      e.preventDefault();
+        fetch(`/reviews/${id}`, {
+        method: "DELETE",
       }).then(reRender)
+
     }
 
   return (
