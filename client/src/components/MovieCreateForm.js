@@ -38,14 +38,24 @@ function MovieCreateForm({ user, hideForm, reRender }) {
           .then(hideForm)
           .then(reRender)
         } else {
-          r.json().then( e => setErrors(Object.entries(e.error.message).flat()))
+          r.json().then( e => setErrors((e.error)))
         }
       })
   }
 
+//   const handleErrors = () => {
+//     if (errors.length <= 2) {
+//         return <div className="errors-msg">{errors[1]}</div>
+//     } else {
+//         return <div>Profile Not Found</div>
+//     }
+// }
+
+  
+
   return (
     <div className="form-container">
-      <div className="errors-msg">{errors}</div>
+      {errors === "Unprocessable Entity" ? <div className="errors-msg">Missing Entries</div> : null}
       <form className="form2" onSubmit={handleSubmit}>
         <label>
           Title:

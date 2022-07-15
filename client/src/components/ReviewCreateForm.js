@@ -46,8 +46,7 @@ function ReviewCreateForm({ user, hideForm, reRender }) {
 
   return ( 
     <div className="form-container">
-        {errors === 'Unprocessable Entity' ? <div>Rating must be 1-10</div> : null}
-        {/* <div className="errors-msg">{errors}</div> */}
+        {errors === 'Unprocessable Entity' ? <div>Rating must be 1-10!</div> : null}
         <form className="form1" onSubmit={handleSubmit}>
             <label>
                 Description:
